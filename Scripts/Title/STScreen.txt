@@ -1,0 +1,127 @@
+// ----------------------------------
+// RSDK Project: Virtua Scarlet
+// Script Description: Virtua Team Logo Object
+// Script Author: Klashicola/Geared
+// ----------------------------------
+
+// ========================
+// Aliases
+// ========================
+
+private alias object.value0 : object.timer
+
+// States
+private alias 0 : VIRTUATEAMLOGO_INITIALISE
+private alias 1 : VIRTUATEAMLOGO_FADEFROMBLACK
+private alias 2 : VIRTUATEAMLOGO_WAIT
+private alias 3 : VIRTUATEAMLOGO_FADETOBLACK
+
+
+// ========================
+// Events
+// ========================
+
+event ObjectUpdate
+	switch object.state
+	case VIRTUATEAMLOGO_INITIALISE
+		LoadPalette("VSS.act", 0, 0, 0, 256)
+		object.state = VIRTUATEAMLOGO_FADEFROMBLACK
+		PlaySfx(SfxName[VT], false)
+		object.timer = 256
+		SetScreenFade(0x00, 0x00, 0x00, 0x00)
+		break
+	
+	case VIRTUATEAMLOGO_FADEFROMBLACK
+		if object.timer > 0
+			object.timer -= 4
+		else
+			object.state = VIRTUATEAMLOGO_WAIT
+		end if
+
+		SetScreenFade(0x00, 0x00, 0x00, object.timer)
+		break
+	
+	case VIRTUATEAMLOGO_WAIT
+		object.timer++
+		if object.timer == 180
+			object.timer = 0
+			object.state = VIRTUATEAMLOGO_FADETOBLACK
+		end if
+		break
+	
+	case VIRTUATEAMLOGO_FADETOBLACK
+		if object.timer < 256
+			object.timer += 4
+			SetScreenFade(0x00, 0x00, 0x00, object.timer)
+		else
+			object.timer = 0
+			object.state = VIRTUATEAMLOGO_INITIALISE
+			ResetObjectEntity(object.entityPos, TypeName[ST Logo], 0, object.xpos, object.ypos)
+			SetScreenFade(0x00, 0x00, 0x00, 0xFF)
+		end if
+		break
+		
+	end switch
+
+	// Add some checks if the player wants to skip the screen already
+	CheckTouchRect(0, 0, screen.xsize, screen.ysize)
+	if checkResult > -1
+		object.state = VIRTUATEAMLOGO_FADETOBLACK
+	end if
+
+	if keyPress[0].start == true
+		object.state = VIRTUATEAMLOGO_FADETOBLACK
+	end if
+
+	if keyPress[0].buttonA == true
+		object.state = VIRTUATEAMLOGO_FADETOBLACK
+	end if
+end event
+
+
+event ObjectDraw
+	temp0 = screen.xcenter
+
+	if screen.xsize <= 424
+		temp0 -= 37
+	else
+		if screen.xsize >= 425
+			temp0 -= 35
+		end if
+	end if
+
+	DrawSpriteScreenXY(0, temp0, screen.ycenter)
+end event
+
+
+event ObjectStartup
+    LoadSpriteSheet("Title/VirtuaTeam.gif")
+	SpriteFrame(-215, -120, 500, 240, 0, 0) // #0 - The Logo itself
+
+	foreach (0, arrayPos0, ALL_ENTITIES)  // Normally i'd put a TypeName[Virtua Team Logo] instead of the 0 in there, but considering the possibility of it not being a type in the scene, we have to work-around with it =/
+		object[arrayPos0].priority = PRIORITY_ACTIVE
+		object[arrayPos0].ixpos = 160
+		object[arrayPos0].iypos = 120
+	next
+	
+	// Hide touch controls
+	options.touchControls = false
+end event
+
+
+// ========================
+// Editor Events
+// ========================
+
+event RSDKDraw
+	DrawSprite(0)
+end event
+
+
+event RSDKLoad
+    LoadSpriteSheet("Title/VirtuaStudio.gif")
+    SpriteFrame(-215, -120, 624, 240, 0, 0) // #0 - The Logo itself
+
+    // This object is set by the scene not by the editor so
+	SetVariableAlias(ALIAS_VAR_PROPVAL, "unused")
+end event
