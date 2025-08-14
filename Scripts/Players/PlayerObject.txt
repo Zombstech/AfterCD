@@ -359,6 +359,7 @@ reserve function Player_Metal_DblJump
 reserve function Player_Action_DblJumpMSonic
 reserve function Player_State_Victory
 reserve function Player_State_Hammerdash
+reserve function Player_State_Hammerattack
 // ========================
 // Static Values
 // ========================
@@ -596,6 +597,15 @@ end table
 // ========================
 // Function Definitions
 // ========================
+public function Player_State_Hammerattack
+	player.animation = 41
+	if keyDown[1].up ==true
+		player.up=false
+	endif
+	if player.frame= = 4
+		player.state=Player_State_Ground
+	end if
+endfunction
 public function Player_State_Hammerdash
 	if player.speed > 0
 		if IsHammerDash==true
@@ -3887,7 +3897,15 @@ public function Player_State_LookUp
 			player.timer = 0
 		else
 			if player.jumpPress == true
-				CallFunction(player.actionPeelout)
+				ifstage.playerListPos==PLAYER_AMY_ALONE
+					player.animation=41
+					player.timer=0
+					if player.frame==3
+						player.state=Player_State_Ground
+					endif
+				else
+					CallFunction(player.actionPeelout)
+				endif
 			end if
 		end if
 	end if
@@ -6073,7 +6091,7 @@ event ObjectStartup
 			player[SLOT_PLAYER1].character		= 3
 			player[SLOT_PLAYER1].jumpOffset = -1
 			player[SLOT_PLAYER1].jumpAbility 	= Player_Action_DblJumpAmy
-			player[SLOT_PLAYER1].actionPeelout = Player_Action_Jump
+			player[SLOT_PLAYER1].actionPeelout = Player_State_Hammerattack
 			ANI_PEELOUT = ANI_RUNNING
 			break
 			
