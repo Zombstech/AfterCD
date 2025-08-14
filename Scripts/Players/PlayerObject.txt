@@ -600,11 +600,7 @@ public function Player_State_Hammerdash
 	if player.speed > 0
 		if IsHammerDash==true
 			ifkeyDown[1].buttonA == true
-			// If Amy is on a steep enough slope, cancel the move
-				Cos256(temp1, player.angle)
-				if temp1 <= 0
-					IsHammerDash=false
-				end if
+
 				ifstage.playerListPos==PLAYER_AMY_ALONE
 
 					player.speed = 0x7F000
@@ -621,14 +617,14 @@ public function Player_State_Hammerdash
 			
 		CallFunction(Player_HandleOnGround)
 		CallFunction(Player_HandleGroundRotation)
+		if player.gravity == GRAVITY_AIR
+			player.state = Player_State_Air_NoDropDash
+			CallFunction(Player_HandleAirMovement)
+		endif
 	else
 		if IsHammerDash==true
 			ifkeyDown[1].buttonA == true
-			// If Amy is on a steep enough slope, cancel the move (but mirrored)
-				Cos256(temp1, player.angle)
-				if temp1 <= 0
-					IsHammerDash=false
-				end if
+
 				ifstage.playerListPos==PLAYER_AMY_ALONE
 					player.speed = -0x7F000
 					player.animation=40	
