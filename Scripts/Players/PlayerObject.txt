@@ -606,6 +606,9 @@ public function Player_State_Hammerdash
 					player.speed = 0x7F000
 					player.animation=40
 				endif
+				if keyDown[1].left == true
+					IsHammerDash=false
+				endif
 			else
 				IsHammerDash=false
 				
@@ -628,6 +631,9 @@ public function Player_State_Hammerdash
 				ifstage.playerListPos==PLAYER_AMY_ALONE
 					player.speed = -0x7F000
 					player.animation=40	
+				endif
+				if keyDown[1].right == true
+					IsHammerDash=false
 				endif
 			else
 				IsHammerDash=false
