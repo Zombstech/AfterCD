@@ -1,0 +1,155 @@
+Operating system: Microsoft Windows NT 6.2.9200.0
+Opening game "D:\Programas\AfterCD\SonLVL.ini"...
+Game type is V4.
+System.ComponentModel.Win32Exception (0x80004005): El sistema no puede encontrar el archivo especificado
+   en System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   en System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   en System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   en System.Windows.Forms.ToolStripMenuItem.OnClick(EventArgs e)
+   en System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   en System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   en System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   en System.Windows.Forms.ToolStripDropDown.OnMouseUp(MouseEventArgs mea)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   en System.Windows.Forms.ToolStripDropDown.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+Loading VELOCITY TESTWAY...
+Loading object definition file "SonLVLObjDefs\2PVS.ini".
+Loading object definition file "SonLVLObjDefs\Animals.ini".
+Loading object definition file "SonLVLObjDefs\BZ.ini".
+Loading object definition file "SonLVLObjDefs\Continue.ini".
+Loading object definition file "SonLVLObjDefs\CPZ.ini".
+Loading object definition file "SonLVLObjDefs\Credits.ini".
+Loading object definition file "SonLVLObjDefs\DDZ.ini".
+Loading object definition file "SonLVLObjDefs\DEZ.ini".
+Loading object definition file "SonLVLObjDefs\EHZ.ini".
+Loading object definition file "SonLVLObjDefs\Ending.ini".
+Loading object definition file "SonLVLObjDefs\Enemies.ini".
+Loading object definition file "SonLVLObjDefs\GHZ.ini".
+Loading object definition file "SonLVLObjDefs\Global.ini".
+Loading object definition file "SonLVLObjDefs\HPZ.ini".
+Loading object definition file "SonLVLObjDefs\HTZ.ini".
+Loading object definition file "SonLVLObjDefs\LevelSelect.ini".
+Loading object definition file "SonLVLObjDefs\LRZ.ini".
+Loading object definition file "SonLVLObjDefs\MainMenu.ini".
+Loading object definition file "SonLVLObjDefs\MBZ.ini".
+Loading object definition file "SonLVLObjDefs\MCZ.ini".
+Loading object definition file "SonLVLObjDefs\Menu.ini".
+Loading object definition file "SonLVLObjDefs\MPZ.ini".
+Loading object definition file "SonLVLObjDefs\OOZ.ini".
+Loading object definition file "SonLVLObjDefs\Players.ini".
+Loading object definition file "SonLVLObjDefs\Save.ini".
+Loading object definition file "SonLVLObjDefs\SCZ.ini".
+Loading object definition file "SonLVLObjDefs\Special.ini".
+Loading object definition file "SonLVLObjDefs\SYZ.ini".
+Loading object definition file "SonLVLObjDefs\TimeAttack.ini".
+Loading object definition file "SonLVLObjDefs\Title.ini".
+Loading object definition file "SonLVLObjDefs\WFZ.ini".
+Error loading object definition Player Object:
+System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
+   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 932
+   en SonicRetro.SonLVL.API.DefaultObjectDefinition.Init(ObjectData data) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\ObjectDefinition.cs:línea 575
+Loading ObjectDefinition type S2ObjectDefinitions.Global.YellowSpring from "SonLVLObjDefs\Global\YellowSpring.cs"...
+Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.YellowSpring.dll"...
+Loading ObjectDefinition type S2ObjectDefinitions.Global.Spikes from "SonLVLObjDefs\Global\Spikes.cs"...
+Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.Spikes.dll"...
+Loading ObjectDefinition type S2ObjectDefinitions.Global.YBoundAdjust from "SonLVLObjDefs\Global\YBoundAdjust.cs"...
+Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.YBoundAdjust.dll"...
+Error loading object definition Goal Ring:
+System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
+   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 932
+   en SonicRetro.SonLVL.API.DefaultObjectDefinition.Init(ObjectData data) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\ObjectDefinition.cs:línea 575
+Loading ObjectDefinition type S2ObjectDefinitions.Global.InvisibleBlock from "SonLVLObjDefs\Global\InvisibleBlock.cs"...
+Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.InvisibleBlock.dll"...
+Loading ObjectDefinition type S2ObjectDefinitions.Global.PSwitch_V from "SonLVLObjDefs\Global\PSwitch_V.cs"...
+Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.PSwitch_V.dll"...
+Loading ObjectDefinition type S2ObjectDefinitions.Global.PSwitch_H from "SonLVLObjDefs\Global\PSwitch_H.cs"...
+Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.PSwitch_H.dll"...
+Drawing tile bitmaps...
+Drawing collision bitmaps...
+Drawing chunk bitmaps...
+Level loaded in 12.1229313 second(s).
+Load completed.
+Saving VELOCITY TESTWAY...
+Saving VELOCITY TESTWAY...
+System.ComponentModel.Win32Exception (0x80004005): El sistema no puede encontrar el archivo especificado
+   en System.Diagnostics.Process.StartWithShellExecuteEx(ProcessStartInfo startInfo)
+   en System.Diagnostics.Process.Start(ProcessStartInfo startInfo)
+   en System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   en System.Windows.Forms.ToolStripMenuItem.OnClick(EventArgs e)
+   en System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   en System.Windows.Forms.ToolStripMenuItem.ProcessCmdKey(Message& m, Keys keyData)
+   en System.Windows.Forms.ToolStripManager.ProcessShortcut(Message& m, Keys shortcut)
+   en System.Windows.Forms.Form.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.ContainerControl.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.ContainerControl.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.ContainerControl.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.ContainerControl.ProcessCmdKey(Message& msg, Keys keyData)
+   en System.Windows.Forms.Control.PreProcessMessage(Message& msg)
+   en System.Windows.Forms.Control.PreProcessControlMessageInternal(Control target, Message& msg)
+   en System.Windows.Forms.Application.ThreadContext.PreTranslateMessage(MSG& msg)
+Saving VELOCITY TESTWAY...
+Saving VELOCITY TESTWAY...
+Error loading object definition GoalRing:
+System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
+   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 932
+   en SonicRetro.SonLVL.API.DefaultObjectDefinition.Init(ObjectData data) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\ObjectDefinition.cs:línea 575
+Saving VELOCITY TESTWAY...
+Saving VELOCITY TESTWAY...
+Saving VELOCITY TESTWAY...
+Saving VELOCITY TESTWAY...
+Loading ObjectDefinition type S1ObjectDefinitions.Enemies.Crabmeat from "SonLVLObjDefs\Enemies\Crabmeat.cs"...
+Compiling code file...
+Compile succeeded.
+System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
+   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 932
+   en S1ObjectDefinitions.Enemies.Crabmeat.Init(ObjectData data) en d:\Programas\AfterCD\SonLVLObjDefs\Enemies\Crabmeat.cs:línea 20
+   en SonicRetro.SonLVL.API.LevelData.MakeObjectDefinition(ObjectInfo objinf) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\LevelData.cs:línea 1013
+   en SonicRetro.SonLVL.GUI.MainForm.objectScriptBox_TextChanged(Object sender, EventArgs e) en D:\Documents\GitHub\SonLVL-RSDK\SonLVL\MainForm.cs:línea 7190
+   en System.Windows.Forms.Control.OnTextChanged(EventArgs e)
+   en System.Windows.Forms.TextBoxBase.OnTextChanged(EventArgs e)
+   en System.Windows.Forms.TextBoxBase.WmReflectCommand(Message& m)
+   en System.Windows.Forms.TextBox.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+Loading ObjectDefinition type S1ObjectDefinitions.Enemies.Crabmeat from "SonLVLObjDefs\Enemies\Crabmeat.cs"...
+Loading type from cached assembly "SonLVLObjDefs\dllcache\S1ObjectDefinitions.Enemies.Crabmeat.dll"...
+System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
+   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 932
+   en S1ObjectDefinitions.Enemies.Crabmeat.Init(ObjectData data) en d:\Programas\AfterCD\SonLVLObjDefs\Enemies\Crabmeat.cs:línea 20
+   en SonicRetro.SonLVL.API.LevelData.MakeObjectDefinition(ObjectInfo objinf) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\LevelData.cs:línea 1013
+   en SonicRetro.SonLVL.GUI.MainForm.objectScriptBox_TextChanged(Object sender, EventArgs e) en D:\Documents\GitHub\SonLVL-RSDK\SonLVL\MainForm.cs:línea 7190
+   en System.Windows.Forms.Control.OnTextChanged(EventArgs e)
+   en System.Windows.Forms.TextBoxBase.OnTextChanged(EventArgs e)
+   en System.Windows.Forms.TextBoxBase.WmReflectCommand(Message& m)
+   en System.Windows.Forms.TextBox.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+Loading ObjectDefinition type S1ObjectDefinitions.Enemies.CrabmeatShot from "SonLVLObjDefs\Enemies\CrabmeatShot.cs"...
+Compiling code file...
+Compile succeeded.
+System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
+   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
+   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 932
+   en S1ObjectDefinitions.Enemies.CrabmeatShot.Init(ObjectData data) en d:\Programas\AfterCD\SonLVLObjDefs\Enemies\CrabmeatShot.cs:línea 18
+   en SonicRetro.SonLVL.API.LevelData.MakeObjectDefinition(ObjectInfo objinf) en D:\Documents\GitHub\SonLVL-RSDK\SonLVLAPI\LevelData.cs:línea 1013
+   en SonicRetro.SonLVL.GUI.MainForm.objectScriptBox_TextChanged(Object sender, EventArgs e) en D:\Documents\GitHub\SonLVL-RSDK\SonLVL\MainForm.cs:línea 7190
+   en System.Windows.Forms.Control.OnTextChanged(EventArgs e)
+   en System.Windows.Forms.TextBoxBase.OnTextChanged(EventArgs e)
+   en System.Windows.Forms.TextBoxBase.WmReflectCommand(Message& m)
+   en System.Windows.Forms.TextBox.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
