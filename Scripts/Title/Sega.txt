@@ -52,7 +52,7 @@ public alias 2 : FLIP_Y
 public alias 3 : FLIP_XY
 
 // Player List Pos Aliases
-private alias 2 : PLAYER_KNUX_ALONE
+private alias 2 : PLAYER_KNUCKLES_A
 
 
 // ========================
@@ -237,8 +237,9 @@ event ObjectUpdate
 			if object.timer == 2
 				PlaySfx(SfxName[Sega Chant], false)
 			end if
-
+#platform: USE_STANDALONE
 			CallFunction(Sega_CheckTouchCheatCodes)
+#endplatform
 			break
 
 		case SEGA_FADETOTITLE
@@ -246,7 +247,7 @@ event ObjectUpdate
 				object.timer += 8
 				SetScreenFade(0x00, 0x00, 0x00, object.timer)
 			else
-				if stage.playerListPos == PLAYER_KNUX_ALONE
+				if stage.playerListPos == PLAYER_KNUCKLES_A
 					ResetObjectEntity(object.entityPos, TypeName[K Logo], 0, object.xpos, object.ypos)
 				else
 					ResetObjectEntity(object.entityPos, TypeName[ST Screen], 0, object.xpos, object.ypos)
@@ -322,6 +323,7 @@ end event
 
 
 event ObjectStartup
+
 	LoadSpriteSheet("Title/Title.gif")
 	SpriteFrame(-31, -36, 62, 72, 1, 226)		// Sonic Run - Frame 1 		- #0
 	SpriteFrame(-31, -36, 62, 72, 64, 226)		// Sonic Run - Frame 2 		- #1

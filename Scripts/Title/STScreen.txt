@@ -1,7 +1,8 @@
 // ----------------------------------
-// RSDK Project: Virtua Scarlet
-// Script Description: Virtua Team Logo Object
-// Script Author: Klashicola/Geared
+// RSDK Project: Sonic 2
+// Script Description: ST Screen Object
+// Script Author: Christian Whitehead/Simon Thomley
+// Unpacked by Rubberduckycooly's script unpacker
 // ----------------------------------
 
 // ========================
@@ -11,10 +12,10 @@
 private alias object.value0 : object.timer
 
 // States
-private alias 0 : VIRTUATEAMLOGO_INITIALISE
-private alias 1 : VIRTUATEAMLOGO_FADEFROMBLACK
-private alias 2 : VIRTUATEAMLOGO_WAIT
-private alias 3 : VIRTUATEAMLOGO_FADETOBLACK
+private alias 0 : STSCREEN_SETUP
+private alias 1 : STSCREEN_FADEIN
+private alias 2 : STSCREEN_SHOWSCREEN
+private alias 3 : STSCREEN_FADEOUT
 
 
 // ========================
@@ -23,89 +24,45 @@ private alias 3 : VIRTUATEAMLOGO_FADETOBLACK
 
 event ObjectUpdate
 	switch object.state
-	case VIRTUATEAMLOGO_INITIALISE
-		LoadPalette("VSS.act", 0, 0, 0, 256)
-		object.state = VIRTUATEAMLOGO_FADEFROMBLACK
-		PlaySfx(SfxName[VT], false)
-		object.timer = 256
-		SetScreenFade(0x00, 0x00, 0x00, 0x00)
+	case STSCREEN_SETUP
+		stage.activeLayer[0] = 1 // Show the "Sonic And Tails In" Screen layer
+		object.timer = 320
+		object.state++
+		SetScreenFade(0x00, 0x00, 0x00, 0xFF)
 		break
-	
-	case VIRTUATEAMLOGO_FADEFROMBLACK
+		
+	case STSCREEN_FADEIN
 		if object.timer > 0
-			object.timer -= 4
+			object.timer -= 16
 		else
-			object.state = VIRTUATEAMLOGO_WAIT
+			object.state++
 		end if
-
 		SetScreenFade(0x00, 0x00, 0x00, object.timer)
 		break
-	
-	case VIRTUATEAMLOGO_WAIT
+		
+	case STSCREEN_SHOWSCREEN
 		object.timer++
-		if object.timer == 180
+		if object.timer == 90
 			object.timer = 0
-			object.state = VIRTUATEAMLOGO_FADETOBLACK
-		end if
-		break
-	
-	case VIRTUATEAMLOGO_FADETOBLACK
-		if object.timer < 256
-			object.timer += 4
-			SetScreenFade(0x00, 0x00, 0x00, object.timer)
-		else
-			object.timer = 0
-			object.state = VIRTUATEAMLOGO_INITIALISE
-			ResetObjectEntity(object.entityPos, TypeName[ST Logo], 0, object.xpos, object.ypos)
-			SetScreenFade(0x00, 0x00, 0x00, 0xFF)
+			object.state++
 		end if
 		break
 		
-	end switch
-
-	// Add some checks if the player wants to skip the screen already
-	CheckTouchRect(0, 0, screen.xsize, screen.ysize)
-	if checkResult > -1
-		object.state = VIRTUATEAMLOGO_FADETOBLACK
-	end if
-
-	if keyPress[0].start == true
-		object.state = VIRTUATEAMLOGO_FADETOBLACK
-	end if
-
-	if keyPress[0].buttonA == true
-		object.state = VIRTUATEAMLOGO_FADETOBLACK
-	end if
-end event
-
-
-event ObjectDraw
-	temp0 = screen.xcenter
-
-	if screen.xsize <= 424
-		temp0 -= 37
-	else
-		if screen.xsize >= 425
-			temp0 -= 35
+	case STSCREEN_FADEOUT
+		if object.timer < 320
+			object.timer += 12
+		else
+			ResetObjectEntity(object.entityPos, TypeName[ST Logo], 0, object.xpos, object.ypos)
 		end if
-	end if
-
-	DrawSpriteScreenXY(0, temp0, screen.ycenter)
-end event
-
-
-event ObjectStartup
-    LoadSpriteSheet("Title/VirtuaTeam.gif")
-	SpriteFrame(-215, -120, 500, 240, 0, 0) // #0 - The Logo itself
-
-	foreach (0, arrayPos0, ALL_ENTITIES)  // Normally i'd put a TypeName[Virtua Team Logo] instead of the 0 in there, but considering the possibility of it not being a type in the scene, we have to work-around with it =/
-		object[arrayPos0].priority = PRIORITY_ACTIVE
-		object[arrayPos0].ixpos = 160
-		object[arrayPos0].iypos = 120
-	next
+		SetScreenFade(0x00, 0x00, 0x00, object.timer)
+		break
+		
+	end switch
 	
-	// Hide touch controls
-	options.touchControls = false
+	temp0 = screen.xcenter
+	FlipSign(temp0)
+	temp0 += 256
+	screen.xoffset = temp0
 end event
 
 
@@ -119,9 +76,8 @@ end event
 
 
 event RSDKLoad
-    LoadSpriteSheet("Title/VirtuaStudio.gif")
-    SpriteFrame(-215, -120, 624, 240, 0, 0) // #0 - The Logo itself
-
-    // This object is set by the scene not by the editor so
+	LoadSpriteSheet("Global/Display.gif")
+	SpriteFrame(-16, -16, 32, 32, 1, 143)
+	
 	SetVariableAlias(ALIAS_VAR_PROPVAL, "unused")
 end event
