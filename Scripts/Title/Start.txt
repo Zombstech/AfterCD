@@ -140,7 +140,7 @@ event ObjectUpdate
 			// New Game - to EHZ1 you go!
 			stage.activeList 		= PRESENTATION_STAGE
 			stage.listPos 			= 3
-			LoadVideo("test")
+			LoadVideo("output_final")
 			LoadStage()
 		end if
 		

@@ -1,3 +1,23 @@
+SONIC AND AMY: AFTER CD CREDITS
+
+Project Lead
+Sebs
+
+Lead Programmer
+Zombstech
+
+Music
+Sebs
+Zombstech
+
+Graphics
+Sebs
+Sonic Team
+SEGA
+
+
+
+RSDK GDT 2.0 CREDITS
 Klashicola - Level desgin (its rough but it works) and the Idea.
 
 Twanvanb1 - Parallax, Script Generator and additional Help
