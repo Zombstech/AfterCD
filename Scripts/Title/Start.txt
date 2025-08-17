@@ -144,7 +144,7 @@ event ObjectUpdate
 			LoadStage()
 		end if
 		
-		SetScreenFade(0x00, 0x00, 0x00, object.timer)
+		SetClassicFade(0x00, 0x00, 0x00, object.timer)
 		
 		
 		break
