@@ -610,14 +610,16 @@ public function Player_State_Hammerdash
 	if player.speed > 0
 		if IsHammerDash==true
 			ifkeyDown[1].buttonA == true
-
-				ifstage.playerListPos==PLAYER_AMY_ALONE
-
+				IsHammerDash=true
+				if player.gravity == GRAVITY_GROUND
+					IsHammerDash=true
 					player.speed = 0x7F000
 					player.animation=40
 				endif
 				if keyDown[1].left == true
-					IsHammerDash=false
+					player.speed = -0x7F000
+					player.direction = FACING_LEFT
+					IsHammerDash=true
 				endif
 			else
 				IsHammerDash=false
@@ -637,13 +639,16 @@ public function Player_State_Hammerdash
 	else
 		if IsHammerDash==true
 			ifkeyDown[1].buttonA == true
-
-				ifstage.playerListPos==PLAYER_AMY_ALONE
+				IsHammerDash=true
+				if player.gravity == GRAVITY_GROUND
 					player.speed = -0x7F000
-					player.animation=40	
+					player.animation=40
+					IsHammerDash=true	
 				endif
 				if keyDown[1].right == true
-					IsHammerDash=false
+					player.speed = 0x7F000
+					player.direction = FACING_RIGHT
+					IsHammerDash=true
 				endif
 			else
 				IsHammerDash=false
@@ -6037,13 +6042,7 @@ event ObjectStartup
 			player[SLOT_PLAYER1].jumpOffset 	= -5
 			player[SLOT_PLAYER1].jumpAbility 	= Player_Action_DblJumpSonic
 			player[SLOT_PLAYER1].actionPeelout = Player_Action_Peelout
-			//To disable the peelout animation use this
-			//ANI_PEELOUT 			= ANI_RUNNING
-			//(note: by having the peelout anim activated but assigning another slot depending on which character is something like this)
-			//case PLAYER_SONIC_ALONE
-			//ANI_PEELOUT 			= ANI_PEELOUT_2
-			//break
-			//This will break the peelout of the other characters since it will try to use that anim for everyone so be careful lol
+			stage.player2Enabled = true
 			break
 
 		case PLAYER_TAILS_ALONE
@@ -6093,6 +6092,7 @@ event ObjectStartup
 			player[SLOT_PLAYER1].jumpAbility 	= Player_Action_DblJumpAmy
 			player[SLOT_PLAYER1].actionPeelout = Player_State_Hammerattack
 			ANI_PEELOUT = ANI_RUNNING
+			stage.player2Enabled = true
 			break
 			
 		case PLAYER_METAL_ALONE

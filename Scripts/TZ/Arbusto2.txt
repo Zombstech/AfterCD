@@ -1,0 +1,13 @@
+//RSDK PROJECT: AfterCD
+//Script: Arbusto 2
+//Autor: Zombstech
+
+event ObjectDraw
+	DrawSprite(0)
+end event
+
+event ObjectStartup
+
+	LoadSpriteSheet("DDZ/Naturaleza.gif")
+	SpriteFrame(-25,-12,50,24,86,42)
+end event 
