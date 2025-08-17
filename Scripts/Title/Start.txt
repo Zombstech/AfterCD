@@ -129,20 +129,26 @@ event ObjectUpdate
 		end if
 		break
 
-#platform: USE_STANDALONE
+
 	case START_NEWGAME
+		
 		object.timer += 8
 		if object.timer == 320
+			
 			options.attractMode 	= false
 
 			// New Game - to EHZ1 you go!
 			stage.activeList 		= PRESENTATION_STAGE
 			stage.listPos 			= 3
+			LoadVideo("Test")
 			LoadStage()
 		end if
+		
 		SetScreenFade(0x00, 0x00, 0x00, object.timer)
+		
+		
 		break
-#endplatform
+
 
 #platform: USE_ORIGINS
 	case START_FLASHPRESSBUTTON
