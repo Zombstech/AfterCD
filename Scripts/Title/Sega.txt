@@ -1,5 +1,5 @@
 event ObjectUpdate
-	ResetObjectEntity(object.entityPos, TypeName[ST Screen], 0, object.xpos, object.ypos)
+	ResetObjectEntity(object.entityPos, TypeName[ST Logo], 0, object.xpos, object.ypos)
 					
 	SetScreenFade(0x00, 0x00, 0x00, 0xFF)
 endevent
