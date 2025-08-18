@@ -124,7 +124,7 @@ event ObjectUpdate
 #platform: USE_ORIGINS
 				object.timer = 0
 #endplatform
-				object.state = START_NEWGAME
+				object.state = START_AWAITACTION
 			end if
 		end if
 		break

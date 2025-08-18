@@ -40,7 +40,14 @@ private alias 3 : PLAYER_SONIC_TAILS_A
 private alias 5 : PLAYER_AMY_A
 private alias 6 : PLAYER_AMY_TAILS_A
 
-
+public alias 0 : PRIORITY_BOUNDS
+public alias 1 : PRIORITY_ACTIVE
+public alias 2 : PRIORITY_ALWAYS
+public alias 3 : PRIORITY_XBOUNDS
+public alias 4 : PRIORITY_XBOUNDS_DESTROY
+public alias 5 : PRIORITY_INACTIVE
+public alias 6 : PRIORITY_BOUNDS_SMALL
+public alias 7 : PRIORITY_ACTIVE_SMALL
 // ========================
 // Function Declarations
 // ========================
