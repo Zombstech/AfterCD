@@ -608,25 +608,35 @@ public function Player_State_Hammerattack
 endfunction
 public function Player_State_Hammerdash
 	if player.speed > 0
-		if IsHammerDash==true
-			ifkeyDown[1].buttonA == true
-				IsHammerDash=true
-				if player.gravity == GRAVITY_GROUND
-					IsHammerDash=true
-					player.speed = 0x7F000
-					player.animation=40
-				endif
-				if keyDown[1].left == true
-					player.speed = -0x7F000
-					player.direction = FACING_LEFT
-					IsHammerDash=true
-				endif
-			else
-				IsHammerDash=false
+		
+		ifkeyDown[1].buttonA == true
+			
 				
+					
+			player.speed = 0x7F000
+			player.animation=40
+			
+			if keyDown[1].left == true
+				player.speed = -0x7F000
+				player.direction = FACING_LEFT
+					
+			else 
+				if keyDown[1].right == true
+					player.speed = 0x7F000
+					player.direction = FACING_RIGHT
+				endif
+				if keyDown[1].down == true
+					player.state = Player_State_Roll
+					player.animation = ANI_JUMPING
+				endif
 			endif
 		else
-			player.state = Player_State_Ground
+				
+			ifkeyDown[1].buttonA==false
+				player.state = Player_State_Ground
+			endif
+			
+
 
 		endif
 			
@@ -637,33 +647,46 @@ public function Player_State_Hammerdash
 			CallFunction(Player_HandleAirMovement)
 		endif
 	else
-		if IsHammerDash==true
-			ifkeyDown[1].buttonA == true
-				IsHammerDash=true
-				if player.gravity == GRAVITY_GROUND
-					player.speed = -0x7F000
-					player.animation=40
-					IsHammerDash=true	
-				endif
-				if keyDown[1].right == true
-					player.speed = 0x7F000
-					player.direction = FACING_RIGHT
-					IsHammerDash=true
-				endif
+		
+		ifkeyDown[1].buttonA == true
+				
+				
+			player.speed = -0x7F000
+			player.animation=40
+						
+				
+			if keyDown[1].right == true
+				player.speed = 0x7F000
+				player.direction = FACING_RIGHT
+					
 			else
-				IsHammerDash=false
+				if keyDown[1].left == true
+					player.speed = -0x7F000
+					player.direction = FACING_LEFT
+				endif
+				if keyDown[1].down == true
+					player.state = Player_State_Roll
+					player.animation = ANI_JUMPING
+				endif
 			endif
 		else
-			player.state=Player_State_Ground
-		end if
+			ifkeyDown[1].buttonA==false
+				player.state = Player_State_Ground
+			endif
+		endif
+
 		if player.gravity == GRAVITY_AIR
 			player.state = Player_State_Air_NoDropDash
 			CallFunction(Player_HandleAirMovement)
 		endif
 		CallFunction(Player_HandleOnGround)
 		CallFunction(Player_HandleGroundRotation)
+		CallFunction(Player_HandleAirMovement)
 
 	end if
+	if player.speed == 0
+		player.state=Player_State_Ground
+	endif
 end function
 
 // Initialize the character object for replay playback
