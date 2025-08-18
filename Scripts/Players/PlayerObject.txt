@@ -630,6 +630,15 @@ public function Player_State_Hammerdash
 					player.animation = ANI_JUMPING
 				endif
 			endif
+			// If Amy is on a steep enough slope, cancel the move
+			Cos256(temp1, player.angle)
+			if temp1 <= 0
+				temp0 = true
+			end if
+			
+				if temp0 == true
+				object.state = Player_State_Ground
+			end if
 		else
 				
 			ifkeyDown[1].buttonA==false
@@ -642,10 +651,21 @@ public function Player_State_Hammerdash
 			
 		CallFunction(Player_HandleOnGround)
 		CallFunction(Player_HandleGroundRotation)
+		CallFunction(Player_HandleGroundMovement)
 		if player.gravity == GRAVITY_AIR
 			player.state = Player_State_Air_NoDropDash
 			CallFunction(Player_HandleAirMovement)
+			CallFunction(Player_HandleAirRotation)
 		endif
+		// If Amy is on a steep enough slope, cancel the move
+		Cos256(temp1, player.angle)
+		if temp1 <= 0
+			temp0 = true
+		end if
+			
+			if temp0 == true
+			object.state = Player_State_Ground
+		end if
 	else
 		
 		ifkeyDown[1].buttonA == true
@@ -669,6 +689,15 @@ public function Player_State_Hammerdash
 					player.animation = ANI_JUMPING
 				endif
 			endif
+			// If Amy is on a steep enough slope, cancel the move
+			Cos256(temp1, player.angle)
+			if temp1 <= 0
+				temp0 = true
+			end if
+			
+				if temp0 == true
+				object.state = Player_State_Ground
+			end if
 		else
 			ifkeyDown[1].buttonA==false
 				player.state = Player_State_Ground
@@ -678,15 +707,28 @@ public function Player_State_Hammerdash
 		if player.gravity == GRAVITY_AIR
 			player.state = Player_State_Air_NoDropDash
 			CallFunction(Player_HandleAirMovement)
+			CallFunction(Player_HandleAirRotation)
 		endif
+		// If Amy is on a steep enough slope, cancel the move
+		Cos256(temp1, player.angle)
+		if temp1 <= 0
+			temp0 = true
+		end if
+			
+			if temp0 == true
+			object.state = Player_State_Ground
+		end if
 		CallFunction(Player_HandleOnGround)
 		CallFunction(Player_HandleGroundRotation)
+		CallFunction(Player_HandleGroundMovement)
 		CallFunction(Player_HandleAirMovement)
 
 	end if
 	if player.speed == 0
 		player.state=Player_State_Ground
 	endif
+
+
 end function
 
 // Initialize the character object for replay playback
@@ -3499,7 +3541,7 @@ public function Player_State_Ground
 				
 				if IsHammerDash==true
 					ifplayer.jumpPress==true
-						ifstage.playerListPos==PLAYER_AMY_ALONE
+						ifstage.playerListPos==PLAYER_KNUX_ALONE
 
 							player.speed = 0xFF000
 							player.animation=40
@@ -3527,7 +3569,7 @@ public function Player_State_Ground
 			else
 				if IsHammerDash==true
 					ifplayer.jumpPress==true
-						ifstage.playerListPos==PLAYER_AMY_ALONE
+						ifstage.playerListPos==PLAYER_KNUX_ALONE
 							player.speed = -0xFF000
 							player.animation=40	
 						endif
