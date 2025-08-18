@@ -1,3 +1,4 @@
-# GDT SAGE 23 Tech Demo
-PLEASE, DON'T DISABLE THE GDT-ZOMBSTECH MOD, AND TRY TO MAKE THE CHANGES IN IT BEFORE COPYING THEM TO THE ROOT DATAFOLDER AND COMMITING TO THE REPO!!!!!
- 
+# Sonic And Amy: After CD
+Source Code for a WIP Fangame made with Retro Engine 4 and powered by the RSDKv4 branch.
+
+Expect logs and commits to be in spanish because we, the two project members, are spanish speakers from Latin America.
