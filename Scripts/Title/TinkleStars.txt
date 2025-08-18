@@ -78,12 +78,12 @@ event ObjectStartup
 	LoadSpriteSheet("Title/Title.gif")
 	
 	// Twinkle Sparkle Frames
-	SpriteFrame(-4, -4, 7, 7, 417, 59)
-	SpriteFrame(-8, -8, 15, 15, 425, 51)
-	SpriteFrame(-12, -12, 23, 23, 441, 43)
-	SpriteFrame(-8, -8, 15, 15, 425, 51)
-	SpriteFrame(-4, -4, 7, 7, 417, 59)
-	SpriteFrame(-4, -4, 7, 7, 417, 59)
+	SpriteFrame(-4, -4, 6, 7, 488, 1)
+	SpriteFrame(-3, -4, 7, 7, 499, 0)
+	SpriteFrame(-4, -4, 6, 7, 488, 1)
+	SpriteFrame(-3, -4, 7, 7, 499, 0)
+	SpriteFrame(-4, -4, 6, 7, 488, 1)
+	SpriteFrame(-3, -4, 7, 7, 499, 0)
 end event
 
 

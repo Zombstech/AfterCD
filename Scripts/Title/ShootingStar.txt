@@ -41,8 +41,8 @@ end event
 
 event ObjectStartup
 	LoadSpriteSheet("Title/Title.gif")
-	SpriteFrame(-4, -4, 7, 7, 417, 59)
-	SpriteFrame(-3, -3, 5, 5, 465, 61)
+	SpriteFrame(-4, -4, 6, 7, 488, 1)
+	SpriteFrame(-3, -4, 7, 7, 499, 0)
 end event
 
 

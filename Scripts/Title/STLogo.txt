@@ -128,6 +128,7 @@ event ObjectUpdate
 			object.alpha -= 8
 		else
 			object.state++
+			PlayMusic(0)
 		end if
 		break
 
@@ -136,7 +137,7 @@ event ObjectUpdate
 			object.timer++
 		else
 			object.timer = 0
-			PlayMusic(0)
+			
 			object.state++
 		end if
 		break
@@ -276,6 +277,13 @@ event ObjectDraw
 		// Draw Emblem (Top)
 		DrawSprite(0)
 
+		// Draw Tails
+		DrawSprite(28) // Tails
+
+		// Draw Sonic
+		DrawSprite(13) // Sonic
+		DrawSprite(17) // Hand
+
 		// Draw Emblem (Bottom)
 		DrawSprite(1)
 
@@ -288,6 +296,13 @@ event ObjectDraw
 		// Draw Emblem (Top)
 		DrawSprite(0)
 
+		// Draw Tails
+		DrawSprite(28) // Tails
+
+		// Draw Sonic
+		DrawSprite(13) // Sonic
+		DrawSprite(17) // Hand
+
 		// Draw Emblem (Bottom)
 		DrawSprite(1)
 		break
@@ -298,8 +313,12 @@ event ObjectDraw
 		// Draw Emblem (Top)
 		DrawSprite(0)
 
+		// Draw Tails
+		DrawSprite(28) // Tails
+
 		// Draw Sonic
-		DrawSprite(object.frame)
+		DrawSprite(13) // Sonic
+		DrawSprite(17) // Hand
 
 		// Draw Emblem (Bottom)
 		DrawSprite(1)
@@ -311,9 +330,12 @@ event ObjectDraw
 		// Draw Emblem (Top)
 		DrawSprite(0)
 
+		// Draw Tails
+		DrawSprite(28) // Tails
+
 		// Draw Sonic
 		DrawSprite(13) // Sonic
-		DrawSprite(object.frame) // Hand
+		DrawSprite(17) // Hand
 
 		// Draw Emblem (Bottom)
 		DrawSprite(1)
@@ -324,6 +346,9 @@ event ObjectDraw
 
 		// Draw Emblem (Top)
 		DrawSprite(0)
+
+		// Draw Tails
+		DrawSprite(28) // Tails
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
@@ -340,7 +365,7 @@ event ObjectDraw
 		DrawSprite(0)
 
 		// Draw Tails
-		DrawSprite(object.frame) // Tails
+		DrawSprite(28) // Tails
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
@@ -358,7 +383,6 @@ event ObjectDraw
 
 		// Draw Tails
 		DrawSprite(28) // Tails
-		DrawSprite(object.frame) // Hand
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
@@ -376,7 +400,6 @@ event ObjectDraw
 
 		// Draw Tails
 		DrawSprite(28) // Tails
-		DrawSprite(31) // Hand
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
@@ -394,7 +417,6 @@ event ObjectDraw
 
 		// Draw Tails
 		DrawSprite(28) // Tails
-		DrawSprite(31) // Hand
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
@@ -415,7 +437,7 @@ event ObjectDraw
 
 		// Draw Tails
 		DrawSprite(28) // Tails
-		DrawSprite(31) // Hand
+		
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
@@ -435,10 +457,10 @@ end event
 
 
 event ObjectStartup
-
+	LoadPalette("title.act", 0, 0, 0, 255)
 	LoadSpriteSheet("Title/Title.gif")
 	SetMusicTrack("Titlescreen.ogg", 0, false)
-
+	
 	arrayPos0 = 0x100
 	while arrayPos0 < 0x240
 		arrayPos1 = arrayPos0
@@ -453,8 +475,8 @@ event ObjectStartup
 		arrayPos0++
 	loop
 
-	SpriteFrame(-128, -78, 256, 82, 255, 67)	// Emblem (Top) 			- #0
-	SpriteFrame(-128, -8, 256, 87, 255, 150)	// Emblem (Bottom) 			- #1
+	SpriteFrame(-128, -78, 258, 150, 239, 120)	// Emblem (Top) 			- #0
+	SpriteFrame(-109, -16, 218, 86, 17, 183)	// Emblem (Bottom) 			- #1
 	SpriteFrame(-21, -19, 72, 40, 1, 66)		// Sonic - Frame 1 			- #2
 	SpriteFrame(-29, -35, 72, 67, 1, 66)		// Sonic - Frame 2 			- #3
 	SpriteFrame(-37, -51, 72, 67, 1, 66)		// Sonic - Frame 3 			- #4
@@ -466,11 +488,11 @@ event ObjectStartup
 	SpriteFrame(-18, -76, 74, 84, 74, 66)		// Sonic - Frame 9 			- #10
 	SpriteFrame(-3, -76, 74, 71, 149, 66)		// Sonic - Frame 10 		- #11
 	SpriteFrame(0, -79, 71, 74, 1, 134)	  		// Sonic - Frame 11 		- #12
-	SpriteFrame(0, -79, 71, 74, 74, 151)  		// Sonic - Frame 12 		- #13
+	SpriteFrame(-10, -99, 114, 114, 137, 3)  		// Sonic - Frame 12 		- #13
 	SpriteFrame(45, -49, 30, 43, 149, 138)		// Sonic Hand - Frame 1 	- #14
 	SpriteFrame(43, -47, 30, 43, 149, 138)		// Sonic Hand - Frame 2 	- #15
 	SpriteFrame(40, -46, 30, 43, 149, 138)		// Sonic Hand - Frame 3 	- #16
-	SpriteFrame(41, -47, 30, 43, 149, 138)		// Sonic Hand - Frame 4 	- #17
+	SpriteFrame(41, -97, 45, 62, 90, 3)		// Sonic Hand - Frame 4 	- #17
 	SpriteFrame(-49, -24, 56, 64, 1, 1)			// Tails - Frame 1 			- #18
 	SpriteFrame(-53, -40, 56, 64, 1, 1)			// Tails - Frame 2 			- #19
 	SpriteFrame(-58, -52, 56, 64, 1, 1)			// Tails - Frame 3 			- #20
@@ -481,11 +503,11 @@ event ObjectStartup
 	SpriteFrame(-86, -59, 89, 57, 58, 1)		// Tails - Frame 8 			- #25
 	SpriteFrame(-80, -64, 88, 61, 149, 1)		// Tails - Frame 9 			- #26
 	SpriteFrame(-82, -63, 89, 59, 238, 1)		// Tails - Frame 10			- #27
-	SpriteFrame(-83, -68, 87, 65, 328, 1)		// Tails - Frame 11			- #28
+	SpriteFrame(-83, -68, 76, 68, 7, 3)		// Tails - Frame 11			- #28
 	SpriteFrame(-9, -22, 16, 19, 417, 1)		// Tails Hand - Frame 1 	- #29
 	SpriteFrame(-12, -27, 16, 19, 417, 1)		// Tails Hand - Frame 2 	- #30
 	SpriteFrame(-11, -26, 16, 19, 417, 1)		// Tails Hand - Frame 3 	- #31
-	SpriteFrame(0, 0, 88, 16, 1, 421)			// Copyright 				- #32
+	SpriteFrame(-48, 0, 136, 16, 64, 163)			// Copyright 				- #32
 end event
 
 
