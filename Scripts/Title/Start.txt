@@ -427,7 +427,7 @@ event ObjectStartup
 	LoadSpriteSheet("Title/Title.gif")
 	switch engine.deviceType
 	case STANDARD
-		SpriteFrame(-49, -1, 98, 9, 1, 380)		// Press Button 	- #0
+		SpriteFrame(-72, -1, 144, 8, 252, 109)		// Press Button 	- #0
 		break
 		
 	case MOBILE
