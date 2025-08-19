@@ -1,0 +1,13 @@
+//RSDK PROJECT: AfterCD
+//Script: Sombrilla2
+//Autor: Zombstech
+
+event ObjectDraw
+	DrawSprite(0)
+end event
+
+event ObjectStartup
+
+	LoadSpriteSheet("DDZ/Naturaleza.gif")
+	SpriteFrame(-22,-20,44,40,3,133)//Frame 0, sombrilla abierta
+end event 
