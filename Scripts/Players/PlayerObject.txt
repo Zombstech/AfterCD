@@ -360,6 +360,7 @@ reserve function Player_Action_DblJumpMSonic
 reserve function Player_State_Victory
 reserve function Player_State_Hammerdash
 reserve function Player_State_Hammerattack
+reserve function Player_HandleAmyHitbox
 // ========================
 // Static Values
 // ========================
@@ -597,14 +598,143 @@ end table
 // ========================
 // Function Definitions
 // ========================
-public function Player_State_Hammerattack
-	player.animation = 41
-	if keyDown[1].up ==true
-		player.up=false
-	endif
-	if player.frame= = 4
-		player.state=Player_State_Ground
+
+	// Bug Details: (first line of code in the script and there's already something, huh?)
+	// This checks against P1's character ID, and while that's fine in singleplayer, it fails to account for P2 Amy in VS...
+	// Not that it matters, the Player 2 Object doesn't call this function anyway
+	
+	if stage.playerListPos == PLAYER_AMY_ALONE
+		temp0 = false
+		
+		if player[currentPlayer].animation == 39
+			temp0 = true
+			
+			player[currentPlayer].hitboxTop = -25
+			player[currentPlayer].hitboxBottom = 25
+			player[currentPlayer].hitboxLeft = -25
+			player[currentPlayer].hitboxRight = 25
+		end if
+		
+		if player[currentPlayer].animation == 41
+			temp0 = true
+			
+			player[currentPlayer].hitboxBottom = 17
+			player[currentPlayer].hitboxTop = -24
+			player[currentPlayer].hitboxLeft = -18
+			player[currentPlayer].hitboxRight = 10
+			
+			switch player[currentPlayer].frame
+			case 0
+			case 4
+				player[currentPlayer].hitboxTop = -17
+				player[currentPlayer].hitboxLeft = -10
+				player[currentPlayer].hitboxRight = 23
+				break
+				
+			case 1
+			case 5
+				player[currentPlayer].hitboxTop = -17
+				player[currentPlayer].hitboxLeft = -23
+				player[currentPlayer].hitboxRight = 10
+				break
+				
+			case 2
+			case 6
+				player[currentPlayer].hitboxTop = -24
+				player[currentPlayer].hitboxLeft = -18
+				player[currentPlayer].hitboxRight = 10
+				break
+				
+			case 3
+			case 7
+				player[currentPlayer].hitboxTop = -26
+				player[currentPlayer].hitboxLeft = -10
+				player[currentPlayer].hitboxRight = 25
+				break
+			end switch
+			
+			if player[currentPlayer].direction == FACING_LEFT
+				// Swap the left and right values
+				temp1 = player[currentPlayer].hitboxLeft
+				player[currentPlayer].hitboxLeft = player[currentPlayer].hitboxRight
+				player[currentPlayer].hitboxRight = temp1
+				player[currentPlayer].hitboxLeft *= -1
+				player[currentPlayer].hitboxRight *= -1
+			end if
+		end if
+		
+		if temp0 == false
+			// Default to regular hitbox
+			player[currentPlayer].hitboxTop = C_BOX
+			player[currentPlayer].hitboxBottom = C_BOX
+			player[currentPlayer].hitboxLeft = C_BOX
+			player[currentPlayer].hitboxRight = C_BOX
+		end if
 	end if
+
+end function
+
+public function Player_State_Hammerattack
+	if player.direction == FACING_RIGHT
+		Screen.cameraStyle = CAMERASTYLE_EXTENDED
+	else
+		Screen.cameraStyle = CAMERASTYLE_EXTENDED
+	end if
+	// Cancels the Peel Out, keeps the camera
+	if player.gravity == GRAVITY_AIR
+		player.state = Player_State_Air_NoDropDash
+		player.speed = 0
+		screen.camerastyle = CAMERASTYLE_EXTENDED
+	end if
+	
+	// Charge
+	if player.gravityStrength == 0x1000
+		if player.abilityTimer < 0x60000
+			player.abilityTimer += 0x8500
+		end if
+	else
+		if player.abilityTimer < 0xC0000
+			player.abilityTimer += 0x8500
+		end if
+	end if
+	
+	// Speed building, from walking to running then peelout
+	if player.abilityTimer < 0x5F5C2
+		player.animation = 41
+		temp0   = player.abilityTimer
+		temp0 >>= 16
+		temp0  *= 80
+		temp0  /= 6
+		temp0  += 20
+	else
+		temp0   = player.abilityTimer
+		temp0 >>= 16
+		temp0  *= 80
+		temp0  /= 6
+		if player.abilityTimer > 0x9FFFF
+			player.animation = 41
+
+		else
+			player.animation = ANI_STOPPED
+		end if
+		
+		
+	end if
+
+	// Release
+	if player.up == false
+		player.scrollDelay = 15
+		screen.camerastyle = CAMERASTYLE_EXTENDED
+
+		player.state = Player_State_Ground
+
+	
+			
+		CallFunction(Player_HandleOnGround)
+	end if
+	player.animationSpeed = temp0
+
+
 endfunction
 public function Player_State_Hammerdash
 	if player.speed > 0
@@ -1216,11 +1346,14 @@ public function Player_CheckHit
 	temp0 |= checkResult
 	CheckEqual(player[currentPlayer].animation, ANI_DROPDASH)
 	temp0 |= checkResult
+
 	
 	if stage.playerListPos == PLAYER_AMY_ALONE
 		CheckEqual(player[currentPlayer].animation, 40)
 		temp0 |= checkResult
 		CheckEqual(player[currentPlayer].animation, 39)
+		temp0 |= checkResult
+		CheckEqual(player[currentPlayer].animation, 41)
 		temp0 |= checkResult
 	end if
 	
@@ -1293,6 +1426,8 @@ public function Player_BadnikBreak
 		CheckEqual(player[currentPlayer].animation, 40)
 		temp0 |= checkResult
 		CheckEqual(player[currentPlayer].animation, 39)
+		temp0 |= checkResult
+		CheckEqual(player[currentPlayer].animation, 41)
 		temp0 |= checkResult
 	end if
 	
@@ -2672,10 +2807,17 @@ public function Player_Action_Jump
 		CallFunction(Player_SetDropDashCharge)
 end function
 
-public function Player_Action_Peelout	
-	player.state		= Player_State_Peelout
-	player.abilityTimer = 0
-	PlaySfx(SfxName[Peelout Charge], false) 	
+public function Player_Action_Peelout
+	ifstage.playerListPos==PLAYER_AMY_ALONE
+		player.state = Player_State_Hammerattack
+		player.abilityTimer=0
+		PlaySfx(SfxName[Release], false)
+	else
+		player.state		= Player_State_Peelout
+		player.abilityTimer = 0
+		PlaySfx(SfxName[Peelout Charge], false) 	
+	endif
+
 end function
 
 
@@ -3967,7 +4109,7 @@ public function Player_State_LookUp
 			player.timer = 0
 		else
 			if player.jumpPress == true
-				ifstage.playerListPos==PLAYER_AMY_ALONE
+				ifstage.playerListPos>PLAYER_METAL_ALONE
 					player.animation=41
 					player.timer=0
 					if player.frame==3
@@ -6155,7 +6297,7 @@ event ObjectStartup
 			player[SLOT_PLAYER1].character		= 3
 			player[SLOT_PLAYER1].jumpOffset = -1
 			player[SLOT_PLAYER1].jumpAbility 	= Player_Action_DblJumpAmy
-			player[SLOT_PLAYER1].actionPeelout = Player_State_Hammerattack
+			player[SLOT_PLAYER1].actionPeelout = Player_Action_Peelout
 			ANI_PEELOUT = ANI_RUNNING
 			stage.player2Enabled = true
 			break

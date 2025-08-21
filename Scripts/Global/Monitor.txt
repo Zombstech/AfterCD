@@ -196,6 +196,8 @@ event ObjectUpdate
 				temp0 |= checkResult
 				CheckEqual(player[currentPlayer].animation, 39)
 				temp0 |= checkResult
+				CheckEqual(player[currentPlayer].animation, 41)
+				temp0 |= checkResult
 			end if
 			if temp0 == true
 				if player[currentPlayer].isSidekick == false
