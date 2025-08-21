@@ -604,7 +604,7 @@ end table
 	// Not that it matters, the Player 2 Object doesn't call this function anyway
 	
 	if stage.playerListPos == PLAYER_AMY_ALONE
-		temp0 = false
+
 		
 		if player[currentPlayer].animation == 39
 			temp0 = true
@@ -613,7 +613,9 @@ end table
 			player[currentPlayer].hitboxBottom = 25
 			player[currentPlayer].hitboxLeft = -25
 			player[currentPlayer].hitboxRight = 25
-		end if
+		else
+			temp0=false
+		endif
 		
 		if player[currentPlayer].animation == 41
 			temp0 = true
@@ -661,7 +663,9 @@ end table
 				player[currentPlayer].hitboxLeft *= -1
 				player[currentPlayer].hitboxRight *= -1
 			end if
-		end if
+		else 
+			temp0=false
+		endif
 		
 		if temp0 == false
 			// Default to regular hitbox
@@ -675,17 +679,7 @@ end table
 end function
 
 public function Player_State_Hammerattack
-	if player.direction == FACING_RIGHT
-		Screen.cameraStyle = CAMERASTYLE_EXTENDED
-	else
-		Screen.cameraStyle = CAMERASTYLE_EXTENDED
-	end if
-	// Cancels the Peel Out, keeps the camera
-	if player.gravity == GRAVITY_AIR
-		player.state = Player_State_Air_NoDropDash
-		player.speed = 0
-		screen.camerastyle = CAMERASTYLE_EXTENDED
-	end if
+
 	
 	// Charge
 	if player.gravityStrength == 0x1000
@@ -700,7 +694,7 @@ public function Player_State_Hammerattack
 	
 	// Speed building, from walking to running then peelout
 	if player.abilityTimer < 0x5F5C2
-		player.animation = 41
+		player.animation = ANI_LOOKINGUP
 		temp0   = player.abilityTimer
 		temp0 >>= 16
 		temp0  *= 80
@@ -711,13 +705,13 @@ public function Player_State_Hammerattack
 		temp0 >>= 16
 		temp0  *= 80
 		temp0  /= 6
-		if player.abilityTimer > 0x9FFFF
+		if player.abilityTimer > 0x5F5F0
 			player.animation = 41
 
 		else
 			player.animation = ANI_STOPPED
 		end if
-		
+		player.animationSpeed=temp0
 		
 	end if
 
@@ -732,7 +726,7 @@ public function Player_State_Hammerattack
 			
 		CallFunction(Player_HandleOnGround)
 	end if
-	player.animationSpeed = temp0
+
 
 
 endfunction
