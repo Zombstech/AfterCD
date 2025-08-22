@@ -483,7 +483,7 @@ event ObjectStartup
 	loop
 
 	SpriteFrame(-128, -88, 258, 150, 239, 120)	// Emblem (Top) 			- #0
-	SpriteFrame(-109, -10, 218, 86, 17, 183)	// Emblem (Bottom) 			- #1
+	SpriteFrame(-109, 0, 218, 86, 17, 183)	// Emblem (Bottom) 			- #1
 	SpriteFrame(-21, -19, 72, 40, 1, 66)		// Sonic - Frame 1 			- #2
 	SpriteFrame(-29, -35, 72, 67, 1, 66)		// Sonic - Frame 2 			- #3
 	SpriteFrame(-37, -51, 72, 67, 1, 66)		// Sonic - Frame 3 			- #4
@@ -506,11 +506,11 @@ event ObjectStartup
 	SpriteFrame(-60, -58, 56, 64, 1, 1)			// Tails - Frame 4 			- #21
 	SpriteFrame(-62, -62, 56, 64, 1, 1)			// Tails - Frame 5 			- #22
 	SpriteFrame(-63, -63, 56, 64, 1, 1)			// Tails - Frame 6 			- #23
-	SpriteFrame(-64, -64, 56, 64, 1, 1)			// Tails - Frame 7 			- #24
+	SpriteFrame(-64, -36, 56, 64, 1, 1)			// Tails - Frame 7 			- #24
 	SpriteFrame(-86, -59, 89, 57, 58, 1)		// Tails - Frame 8 			- #25
 	SpriteFrame(-80, -64, 88, 61, 149, 1)		// Tails - Frame 9 			- #26
 	SpriteFrame(-82, -63, 89, 59, 238, 1)		// Tails - Frame 10			- #27
-	SpriteFrame(-83, -58, 76, 68, 7, 3)		// Tails - Frame 11			- #28
+	SpriteFrame(-83, -53, 76, 68, 7, 3)		// Tails - Frame 11			- #28
 	SpriteFrame(-9, -22, 16, 19, 417, 1)		// Tails Hand - Frame 1 	- #29
 	SpriteFrame(-12, -27, 16, 19, 417, 1)		// Tails Hand - Frame 2 	- #30
 	SpriteFrame(-11, -26, 16, 19, 417, 1)		// Tails Hand - Frame 3 	- #31
