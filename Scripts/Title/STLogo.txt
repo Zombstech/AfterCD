@@ -251,6 +251,14 @@ event ObjectUpdate
 			tileLayer[2].deformationOffset++
 			object.timer = 0
 		end if
+		  object.value4 += 8; // Aumentar el valor para la función Sin()
+    if object.value4 > 511
+        object.value4 -= 512;
+    end if
+    
+    Sin(object.rotation, object.value4);
+    object.rotation >>= 4; // Escalar el valor de rotación
+
 		break
 		
 	end switch
@@ -448,7 +456,7 @@ event ObjectDraw
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
-		DrawSprite(17) // Hand
+		 DrawSpriteFX(17, FX_ROTATE, object.xpos, object.ypos);
 
 		// Draw Emblem (Bottom)
 		DrawSprite(1)
