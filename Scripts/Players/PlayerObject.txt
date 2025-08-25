@@ -706,7 +706,11 @@ public function Player_State_Hammerattack
 		temp0  *= 80
 		temp0  /= 6
 		if player.abilityTimer > 0x5F5F0
-			player.animation = 41
+			ifplayer.direction==FACING_LEFT
+				player.animation = 46
+			else
+				player.animation = 41
+			endif
 
 		else
 			player.animation = ANI_STOPPED
