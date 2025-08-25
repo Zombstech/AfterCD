@@ -251,14 +251,13 @@ event ObjectUpdate
 			tileLayer[2].deformationOffset++
 			object.timer = 0
 		end if
-		object.value4 += 5; // Add to the value for Sin()
-		if object.value4 > 511
-       			object.value4 -= 512;
-   		end if
+		  object.value4 += 8; // Aumentar el valor para la función Sin()
+    if object.value4 > -511
+        object.value4 -= -512;
+    end if
     
-    		Sin(object.rotation, object.value4);
-		object.rotation >>= 6; // Scale rotation value
-
+    Sin(object.rotation, object.value4);
+    object.rotation >>= 6; // Escalar el valor de rotación
 		break
 		
 	end switch
@@ -456,10 +455,10 @@ event ObjectDraw
 
 		// Draw Sonic
 		DrawSprite(13) // Sonic
-		temp1=screen.xcenter
-		temp1+=58
+	        temp1=screen.xcenter
+		temp1+=88
 		temp2=screen.ycenter
-		temp2-=64
+		temp2-=-5
 		DrawSpriteScreenFX(17, FX_ROTATE, temp1, temp2)
 
 		// Draw Emblem (Bottom)
@@ -510,9 +509,9 @@ event ObjectStartup
 	SpriteFrame(-10, -89, 114, 114, 137, 3)  		// Sonic - Frame 12 		- #13
 	SpriteFrame(45, -49, 30, 43, 149, 138)		// Sonic Hand - Frame 1 	- #14
 	SpriteFrame(43, -47, 30, 43, 149, 138)		// Sonic Hand - Frame 2 	- #15
-	SpriteFrame(37, -80, 45, 62, 90, 3)		// Sonic Hand - Frame 3 	- #16
-	SpriteFrame(-20, -18, 45, 62, 90, 3)		// Sonic Hand - Frame 4 	- #17
-	SpriteFrame(-49, -24, 56, 64, 1, 1)			// Tails - Frame 1 			- #18
+	SpriteFrame(41, -83, 45, 62, 90, 3)		// Sonic Hand - Frame 3 	- #16
+	SpriteFrame(-50, -87, 45, 62, 90, 3)		// Sonic Hand - Frame 4 	- #17
+	SpriteFrame(-29, -24, 56, 64, 1, 1)			// Tails - Frame 1 			- #18
 	SpriteFrame(-53, -40, 56, 64, 1, 1)			// Tails - Frame 2 			- #19
 	SpriteFrame(-58, -52, 56, 64, 1, 1)			// Tails - Frame 3 			- #20
 	SpriteFrame(-60, -58, 56, 64, 1, 1)			// Tails - Frame 4 			- #21
