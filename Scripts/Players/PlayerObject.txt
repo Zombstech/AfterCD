@@ -1353,6 +1353,8 @@ public function Player_CheckHit
 		temp0 |= checkResult
 		CheckEqual(player[currentPlayer].animation, 41)
 		temp0 |= checkResult
+		CheckEqual(player[currentPlayer].animation, 46)
+		temp0 |= checkResult
 	end if
 	
 	// Tails can also destroy badniks when flying, but only if the badnik is above him (hitting his tails)
@@ -1426,6 +1428,8 @@ public function Player_BadnikBreak
 		CheckEqual(player[currentPlayer].animation, 39)
 		temp0 |= checkResult
 		CheckEqual(player[currentPlayer].animation, 41)
+		temp0 |= checkResult
+		CheckEqual(player[currentPlayer].animation, 46)
 		temp0 |= checkResult
 	end if
 	
