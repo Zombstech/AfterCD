@@ -7,7 +7,6 @@ event ObjectDraw
 end event
 
 event ObjectStartup
-
 	LoadSpriteSheet("DDZ/Naturaleza.gif")
 	SpriteFrame(-42, -65, 85, 129, 0, 0)
 end event 
