@@ -2813,11 +2813,11 @@ public function Player_Action_Peelout
 	ifstage.playerListPos==PLAYER_AMY_ALONE
 		player.state = Player_State_Hammerattack
 		player.abilityTimer=0
-		PlaySfx(SfxName[Release], false)
+		PlaySfx(SfxName[HammerHit], false)
 	else
 		player.state		= Player_State_Peelout
 		player.abilityTimer = 0
-		PlaySfx(SfxName[Peelout Charge], false) 	
+		PlaySfx(SfxName[HammerHit], false) 	
 	endif
 
 end function
@@ -3026,22 +3026,28 @@ public function Player_Action_DblJumpAmy
 	end if
 	if player.jumpAbilityState == 1
 		if player.jumpPress == true
-			PlaySfx(SfxName[Dropdash], false)
+			PlaySfx(SfxName[HammerJump], false)
 			player.yvel = -0x58000
 			player.jumpAbilityState = 1
 			player.animation = 39
+			player.animationSpeed = 1
+			if player.jumpHold == false
+            player.animationSpeed = 30
+			if player.jumpHold == true
+			player.animationSpeed = 1
+			
 
 			if player.state == Player_State_RollJump
 				player.state = Player_State_Air
-			end if
-		end if
-	end if
+			end if   
+    end if
+end if
 end function
 
 public function Player_Metal_DblJump
 	if player.jumpAbilityState == 1
 		if player.jumpPress == true
-			PlaySfx(SfxName[Jump], false)
+			PlaySfx(SfxName[HammerJump], false)
 				player.yvel = -0x60000
 				player.jumpAbilityState = 2
 				player.animation = ANI_JUMPING
@@ -3368,7 +3374,7 @@ public function Player_HandleDropDash
 					temp7++
 					if temp7 == 20
 						if player.animation == ANI_JUMPING	// Make sure Sonic is in the right animation!
-							PlaySfx(SfxName[Charge], false)
+							PlaySfx(SfxName[HammerJump], false)
 						end if
 					end if
 					if temp7 >= 20
@@ -3971,7 +3977,8 @@ public function Player_State_Air
 				if player.direction == FACING_LEFT
 					FlipSign(player.speed)
 				end if
-				PlaySfx(SfxName[Release], false)
+				PlaySfx(SfxName[HammerAttack], false)
+
 				player.animation=40
 				IsHammerDash=true
 				player.state=Player_State_Hammerdash
@@ -5173,6 +5180,7 @@ public function Player_State_GotHit
 				temp0 = 2
 			end if
 		end if
+		
 	else
 		temp0 = 1
 		if player.blinkTimer != 0
