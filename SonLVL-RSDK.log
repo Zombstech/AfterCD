@@ -1,136 +1,21 @@
-SonLVL-RSDK Build Date: 07/30/2025 08:37:22
 Operating system: Microsoft Windows NT 6.2.9200.0
-Opening game "D:\Programas\AfterCD\SonLVL.ini"...
+Opening game "C:\Users\chibi\Documents\GitHub\AfterCD\SonLVL.ini"...
 Game type is V4.
-No DataFile found at D:\Programas\AfterCD\Data.rsdk, assuming Data Folder mode in folder D:\Programas\AfterCD...
-Loading level VELOCITY TESTWAY...
-Loading base object definition database "SonLVLObjDefs\2PVS.ini".
-Loading base object definition database "SonLVLObjDefs\Animals.ini".
-Loading base object definition database "SonLVLObjDefs\BZ.ini".
-Loading base object definition database "SonLVLObjDefs\Continue.ini".
-Loading base object definition database "SonLVLObjDefs\CPZ.ini".
-Loading base object definition database "SonLVLObjDefs\Credits.ini".
-Loading base object definition database "SonLVLObjDefs\DDZ.ini".
-Loading base object definition database "SonLVLObjDefs\DEZ.ini".
-Loading base object definition database "SonLVLObjDefs\EHZ.ini".
-Loading base object definition database "SonLVLObjDefs\Ending.ini".
-Loading base object definition database "SonLVLObjDefs\Enemies.ini".
-Loading base object definition database "SonLVLObjDefs\GHZ.ini".
-Loading base object definition database "SonLVLObjDefs\Global.ini".
-Loading base object definition database "SonLVLObjDefs\HPZ.ini".
-Loading base object definition database "SonLVLObjDefs\HTZ.ini".
-Loading base object definition database "SonLVLObjDefs\LevelSelect.ini".
-Loading base object definition database "SonLVLObjDefs\LRZ.ini".
-Loading base object definition database "SonLVLObjDefs\MainMenu.ini".
-Loading base object definition database "SonLVLObjDefs\MBZ.ini".
-Loading base object definition database "SonLVLObjDefs\MCZ.ini".
-Loading base object definition database "SonLVLObjDefs\Menu.ini".
-Loading base object definition database "SonLVLObjDefs\MPZ.ini".
-Loading base object definition database "SonLVLObjDefs\OOZ.ini".
-Loading base object definition database "SonLVLObjDefs\Players.ini".
-Loading base object definition database "SonLVLObjDefs\Save.ini".
-Loading base object definition database "SonLVLObjDefs\SCZ.ini".
-Loading base object definition database "SonLVLObjDefs\Special.ini".
-Loading base object definition database "SonLVLObjDefs\SYZ.ini".
-Loading base object definition database "SonLVLObjDefs\TimeAttack.ini".
-Loading base object definition database "SonLVLObjDefs\Title.ini".
-Loading base object definition database "SonLVLObjDefs\WFZ.ini".
-Error loading object definition Player Object:
-System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
-   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
-   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 937
-   en SonicRetro.SonLVL.API.DefaultObjectDefinition.Init(ObjectData data) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\ObjectDefinition.cs:línea 578
-Loading ObjectDefinition type S2ObjectDefinitions.Global.YellowSpring from "SonLVLObjDefs\Global\YellowSpring.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.YellowSpring.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.Spikes from "SonLVLObjDefs\Global\Spikes.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.Spikes.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.YBoundAdjust from "SonLVLObjDefs\Global\YBoundAdjust.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.YBoundAdjust.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.PSwitch_H from "SonLVLObjDefs\Global\PSwitch_H.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.PSwitch_H.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.InvisibleBlock from "SonLVLObjDefs\Global\InvisibleBlock.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.InvisibleBlock.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.PSwitch_V from "SonLVLObjDefs\Global\PSwitch_V.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.PSwitch_V.dll"...
-Error loading object definition GoalRing:
-System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
-   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
-   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 937
-   en SonicRetro.SonLVL.API.DefaultObjectDefinition.Init(ObjectData data) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\ObjectDefinition.cs:línea 578
-Drawing tile bitmaps...
-Drawing collision bitmaps...
-Drawing chunk bitmaps...
-Level loaded in 7.3497398 second(s).
-Load completed.
-Saving VELOCITY TESTWAY...
-Saving VELOCITY TESTWAY...
-Saving VELOCITY TESTWAY...
-Saving VELOCITY TESTWAY...
-Saving VELOCITY TESTWAY...
-Saving VELOCITY TESTWAY...
-Saving VELOCITY TESTWAY...
-Saving VELOCITY TESTWAY...
-Loading level VELOCITY TESTWAY...
-Loading base object definition database "SonLVLObjDefs\2PVS.ini".
-Loading base object definition database "SonLVLObjDefs\Animals.ini".
-Loading base object definition database "SonLVLObjDefs\BZ.ini".
-Loading base object definition database "SonLVLObjDefs\Continue.ini".
-Loading base object definition database "SonLVLObjDefs\CPZ.ini".
-Loading base object definition database "SonLVLObjDefs\Credits.ini".
-Loading base object definition database "SonLVLObjDefs\DDZ.ini".
-Loading base object definition database "SonLVLObjDefs\DEZ.ini".
-Loading base object definition database "SonLVLObjDefs\EHZ.ini".
-Loading base object definition database "SonLVLObjDefs\Ending.ini".
-Loading base object definition database "SonLVLObjDefs\Enemies.ini".
-Loading base object definition database "SonLVLObjDefs\GHZ.ini".
-Loading base object definition database "SonLVLObjDefs\Global.ini".
-Loading base object definition database "SonLVLObjDefs\HPZ.ini".
-Loading base object definition database "SonLVLObjDefs\HTZ.ini".
-Loading base object definition database "SonLVLObjDefs\LevelSelect.ini".
-Loading base object definition database "SonLVLObjDefs\LRZ.ini".
-Loading base object definition database "SonLVLObjDefs\MainMenu.ini".
-Loading base object definition database "SonLVLObjDefs\MBZ.ini".
-Loading base object definition database "SonLVLObjDefs\MCZ.ini".
-Loading base object definition database "SonLVLObjDefs\Menu.ini".
-Loading base object definition database "SonLVLObjDefs\MPZ.ini".
-Loading base object definition database "SonLVLObjDefs\OOZ.ini".
-Loading base object definition database "SonLVLObjDefs\Players.ini".
-Loading base object definition database "SonLVLObjDefs\Save.ini".
-Loading base object definition database "SonLVLObjDefs\SCZ.ini".
-Loading base object definition database "SonLVLObjDefs\Special.ini".
-Loading base object definition database "SonLVLObjDefs\SYZ.ini".
-Loading base object definition database "SonLVLObjDefs\TimeAttack.ini".
-Loading base object definition database "SonLVLObjDefs\Title.ini".
-Loading base object definition database "SonLVLObjDefs\WFZ.ini".
-Error loading object definition Player Object:
-System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
-   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
-   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 937
-   en SonicRetro.SonLVL.API.DefaultObjectDefinition.Init(ObjectData data) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\ObjectDefinition.cs:línea 578
-Loading ObjectDefinition type S2ObjectDefinitions.Global.YellowSpring from "SonLVLObjDefs\Global\YellowSpring.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.YellowSpring.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.Spikes from "SonLVLObjDefs\Global\Spikes.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.Spikes.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.YBoundAdjust from "SonLVLObjDefs\Global\YBoundAdjust.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.YBoundAdjust.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.PSwitch_H from "SonLVLObjDefs\Global\PSwitch_H.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.PSwitch_H.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.PSwitch_V from "SonLVLObjDefs\Global\PSwitch_V.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.PSwitch_V.dll"...
-Loading ObjectDefinition type S2ObjectDefinitions.Global.InvisibleBlock from "SonLVLObjDefs\Global\InvisibleBlock.cs"...
-Loading type from cached assembly "SonLVLObjDefs\dllcache\S2ObjectDefinitions.Global.InvisibleBlock.dll"...
-Error loading object definition GoalRing:
-System.ArgumentException: La matriz de origen no es suficientemente larga. Compruebe srcIndex, la longitud y los límites inferiores de la matriz.
-   en System.Array.Copy(Array sourceArray, Int32 sourceIndex, Array destinationArray, Int32 destinationIndex, Int32 length, Boolean reliable)
-   en SonicRetro.SonLVL.API.BitmapBits.GetSection(Int32 x, Int32 y, Int32 width, Int32 height) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\BitmapBits.cs:línea 937
-   en SonicRetro.SonLVL.API.DefaultObjectDefinition.Init(ObjectData data) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\ObjectDefinition.cs:línea 578
-Drawing tile bitmaps...
-Drawing collision bitmaps...
-Drawing chunk bitmaps...
-Level loaded in 2.4556512 second(s).
-Load completed.
-System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en SonicRetro.SonLVL.API.BitmapBits32.DrawSprite(Sprite sprite, Int32 x, Int32 y) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\BitmapBits32.cs:línea 177
-   en SonicRetro.SonLVL.API.LevelData.DrawBackground32(Int32 layer, Nullable`1 section, Color backgroundColor, Boolean lowPlane, Boolean highPlane) en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVLAPI\LevelData.cs:línea 969
-   en SonicRetro.SonLVL.GUI.MainForm.bgscrollfunc() en D:\a\SonLVL-RSDK\SonLVL-RSDK\SonLVL\MainForm.cs:línea 8757
-   en System.Threading.Tasks.Task.Execute()
+System.ArgumentOutOfRangeException: La longitud no puede ser inferior a cero.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SonicRetro.SonLVL.GUI.MainForm.LoadMod(String path) en D:\Documents\GitHub\SonLVL-RSDK\SonLVL\MainForm.cs:línea 442
+   en SonicRetro.SonLVL.GUI.MainForm.recentModsToolStripMenuItem_DropDownItemClicked(Object sender, ToolStripItemClickedEventArgs e) en D:\Documents\GitHub\SonLVL-RSDK\SonLVL\MainForm.cs:línea 871
+   en System.Windows.Forms.ToolStripDropDownItem.OnDropDownItemClicked(ToolStripItemClickedEventArgs e)
+   en System.Windows.Forms.ToolStrip.OnItemClicked(ToolStripItemClickedEventArgs e)
+   en System.Windows.Forms.ToolStripDropDown.OnItemClicked(ToolStripItemClickedEventArgs e)
+   en System.Windows.Forms.ToolStrip.HandleItemClick(ToolStripItem dismissingItem)
+   en System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   en System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   en System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   en System.Windows.Forms.ToolStripDropDown.OnMouseUp(MouseEventArgs mea)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   en System.Windows.Forms.ToolStripDropDown.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
